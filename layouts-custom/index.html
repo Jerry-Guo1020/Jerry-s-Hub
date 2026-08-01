@@ -1,0 +1,63 @@
+{{ define "main" }}
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">{{ .Site.Params.kicker }}</p>
+        <h1>{{ .Site.Params.homeTitle }}</h1>
+        <p>{{ .Site.Params.description }}</p>
+        <div class="hero-actions">
+          <a class="button" href="{{ "/posts/" | relURL }}">阅读文章</a>
+          <a class="button button-secondary" href="{{ "/index.xml" | relURL }}">RSS</a>
+        </div>
+      </div>
+      <div class="structure-panel" aria-label="站点结构">
+        <div>
+          <strong>content/</strong>
+          <span>文章</span>
+        </div>
+        <div>
+          <strong>data/</strong>
+          <span>数据</span>
+        </div>
+        <div>
+          <strong>layouts/</strong>
+          <span>模板</span>
+        </div>
+        <div>
+          <strong>assets/</strong>
+          <span>样式</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container section-heading">
+      <p class="eyebrow">Latest</p>
+      <h2>最近文章</h2>
+    </div>
+    <div class="container post-grid">
+      {{ $posts := where .Site.RegularPages "Section" "posts" }}
+      {{ range first 3 $posts }}
+        {{ partial "post-card.html" . }}
+      {{ else }}
+        <p class="empty-state">还没有文章。</p>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container focus-layout">
+      <div>
+        <p class="eyebrow">Focus</p>
+        <h2>{{ .Site.Data.profile.name }}</h2>
+        <p>{{ .Site.Data.profile.role }}</p>
+      </div>
+      <div class="focus-list">
+        {{ range .Site.Data.profile.focus }}
+          <span>{{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

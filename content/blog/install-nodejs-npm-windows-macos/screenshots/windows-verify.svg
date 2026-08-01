@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Windows PowerShell 验证 Node.js 和 npm</title>
+  <desc id="desc">PowerShell output showing node, npm and where commands.</desc>
+  <rect width="1100" height="620" fill="#eef3f8"/>
+  <rect x="94" y="72" width="912" height="476" rx="16" fill="#0c1622"/>
+  <rect x="94" y="72" width="912" height="54" rx="16" fill="#132337"/>
+  <text x="126" y="106" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#dbeafe">PowerShell</text>
+  <g font-family="Consolas, SFMono-Regular, monospace" font-size="24">
+    <text x="126" y="178" fill="#93c5fd">PS C:\Users\Jerry&gt;</text>
+    <text x="370" y="178" fill="#f8fafc"> node -v</text>
+    <text x="126" y="214" fill="#bbf7d0">v22.x.x</text>
+    <text x="126" y="270" fill="#93c5fd">PS C:\Users\Jerry&gt;</text>
+    <text x="370" y="270" fill="#f8fafc"> npm -v</text>
+    <text x="126" y="306" fill="#bbf7d0">10.x.x</text>
+    <text x="126" y="362" fill="#93c5fd">PS C:\Users\Jerry&gt;</text>
+    <text x="370" y="362" fill="#f8fafc"> where.exe node</text>
+    <text x="126" y="398" fill="#bbf7d0">C:\Program Files\nodejs\node.exe</text>
+    <text x="126" y="454" fill="#93c5fd">PS C:\Users\Jerry&gt;</text>
+    <text x="370" y="454" fill="#f8fafc"> npm config get registry</text>
+    <text x="126" y="490" fill="#bbf7d0">https://registry.npmmirror.com/</text>
+  </g>
+</svg>

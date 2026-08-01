@@ -1,0 +1,13 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="{{ .Site.Title }} 首页">
+      <span class="brand-mark" aria-hidden="true">J</span>
+      <span>{{ .Site.Title }}</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+  </div>
+</header>

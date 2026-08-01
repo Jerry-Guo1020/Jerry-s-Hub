@@ -1,0 +1,28 @@
+{{ define "main" }}
+  {{ partial "page-header" . }}
+
+
+  <section class="section">
+    <div class="container">
+      <div class="row gx-5">
+        <!-- posts for this term -->
+        <div class="lg:col-8">
+          <div class="row">
+            {{ range .Data.Pages }}
+              <div class="md:col-6 mb-14">
+                {{ partial "components/blog-card" . }}
+              </div>
+            {{ else }}
+              <div class="col-12">
+                <p class="text-text-light dark:text-darkmode-text-light">这个筛选下还没有文章。</p>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+        <div class="lg:col-4">
+          {{ partial "widgets/filters.html" . }}
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

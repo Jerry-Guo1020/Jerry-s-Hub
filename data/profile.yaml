@@ -1,0 +1,11 @@
+name: "Jerry"
+role: "Writer / Builder"
+focus:
+  - "技术笔记"
+  - "产品思考"
+  - "长期主义写作"
+links:
+  - name: "GitHub"
+    url: "https://github.com/"
+  - name: "RSS"
+    url: "/index.xml"

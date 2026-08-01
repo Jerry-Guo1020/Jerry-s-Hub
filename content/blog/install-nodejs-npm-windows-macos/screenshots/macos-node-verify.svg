@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">macOS fnm 安装并验证 Node.js</title>
+  <desc id="desc">macOS terminal showing fnm install LTS and node/npm verification.</desc>
+  <rect width="1100" height="620" fill="#f2f7f3"/>
+  <rect x="92" y="70" width="916" height="480" rx="18" fill="#102018"/>
+  <rect x="92" y="70" width="916" height="56" rx="18" fill="#173323"/>
+  <circle cx="126" cy="99" r="8" fill="#ff5f57"/>
+  <circle cx="152" cy="99" r="8" fill="#febc2e"/>
+  <circle cx="178" cy="99" r="8" fill="#28c840"/>
+  <text x="218" y="105" font-family="Arial, sans-serif" font-size="17" fill="#d1fae5">Terminal - fnm</text>
+  <g font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="22">
+    <text x="126" y="172" fill="#7ee787">% fnm install --lts</text>
+    <text x="126" y="208" fill="#e5ffe9">Installing Node.js LTS...</text>
+    <text x="126" y="260" fill="#7ee787">% fnm use --lts</text>
+    <text x="126" y="296" fill="#e5ffe9">Using Node v22.x.x</text>
+    <text x="126" y="348" fill="#7ee787">% node -v</text>
+    <text x="126" y="384" fill="#e5ffe9">v22.x.x</text>
+    <text x="126" y="436" fill="#7ee787">% npm -v</text>
+    <text x="126" y="472" fill="#e5ffe9">10.x.x</text>
+  </g>
+</svg>

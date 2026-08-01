@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <section class="page-header">
+    <div class="container narrow">
+      <p class="eyebrow">{{ .Data.Singular | default "tag" }}</p>
+      <h1>{{ .Title }}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container post-grid">
+      {{ range .Paginator.Pages }}
+        {{ partial "post-card.html" . }}
+      {{ else }}
+        <p class="empty-state">这个标签下还没有文章。</p>
+      {{ end }}
+    </div>
+    {{ template "_internal/pagination.html" . }}
+  </section>
+{{ end }}

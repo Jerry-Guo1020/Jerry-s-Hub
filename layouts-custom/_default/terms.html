@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <section class="page-header">
+    <div class="container narrow">
+      <p class="eyebrow">Taxonomy</p>
+      <h1>{{ .Title }}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container tag-cloud">
+      {{ range .Data.Terms.Alphabetical }}
+        <a href="{{ .Page.RelPermalink }}">
+          <span>{{ .Page.Title }}</span>
+          <strong>{{ .Count }}</strong>
+        </a>
+      {{ else }}
+        <p class="empty-state">还没有标签。</p>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

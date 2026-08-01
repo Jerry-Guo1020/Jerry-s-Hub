@@ -1,0 +1,79 @@
+<!-- article filters -->
+{{ $currentKind := .Kind }}
+{{ $currentType := .Type }}
+{{ $currentTitle := .Title }}
+{{ $isCategory := and (eq $currentKind `term`) (eq $currentType `categories`) }}
+{{ $isTag := and (eq $currentKind `term`) (eq $currentType `tags`) }}
+{{ $isFiltered := or $isCategory $isTag }}
+{{ $categoryLabels := dict }}
+{{ $tagLabels := dict }}
+{{ range site.RegularPages }}
+  {{ range .Params.categories }}
+    {{ $categoryLabels = merge $categoryLabels (dict (. | urlize) (. | humanize)) }}
+  {{ end }}
+  {{ range .Params.tags }}
+    {{ $tagLabels = merge $tagLabels (dict (. | urlize) .) }}
+  {{ end }}
+{{ end }}
+
+<aside class="mb-8 rounded border border-border bg-light p-5 dark:border-darkmode-border dark:bg-darkmode-light">
+  <div class="mb-5 flex items-start justify-between gap-4">
+    <div>
+      <p class="mb-1 text-sm text-text-light dark:text-darkmode-text-light">按分类或标签筛选</p>
+      <h5 class="mb-0">筛选文章</h5>
+    </div>
+    <a
+      class="shrink-0 rounded border px-3 py-1.5 text-sm transition {{ if $isFiltered }}border-border bg-body text-text-dark hover:border-primary hover:text-primary dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark dark:hover:border-darkmode-primary dark:hover:text-darkmode-primary{{ else }}border-primary bg-primary text-white dark:border-darkmode-primary dark:bg-darkmode-primary dark:text-text-dark{{ end }}"
+      href="{{ `blog/` | relLangURL }}">
+      全部
+    </a>
+  </div>
+
+  {{ if isset site.Taxonomies "categories" }}
+    {{ if not (eq (len site.Taxonomies.categories) 0) }}
+      <div class="border-t border-border pt-5 dark:border-darkmode-border">
+        <div class="mb-3 flex items-center justify-between text-sm">
+          <span class="font-semibold text-text-dark dark:text-darkmode-text-dark">分类</span>
+          <span class="text-text-light dark:text-darkmode-text-light">{{ len site.Taxonomies.categories }}</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {{ range site.Taxonomies.categories.ByCount }}
+            {{ $active := and $isCategory (eq $currentTitle .Page.Title) }}
+            {{ $key := replaceRE `^.*/([^/]+)/?$` `$1` .Page.RelPermalink }}
+            {{ $label := index $categoryLabels $key | default (.Page.Title | humanize) }}
+            <a
+              class="inline-flex items-center gap-2 rounded border px-3 py-1.5 text-sm transition {{ if $active }}border-primary bg-primary text-white dark:border-darkmode-primary dark:bg-darkmode-primary dark:text-text-dark{{ else }}border-border bg-body text-text-dark hover:border-primary hover:text-primary dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark dark:hover:border-darkmode-primary dark:hover:text-darkmode-primary{{ end }}"
+              href="{{ .Page.RelPermalink }}">
+              <span>{{ $label }}</span>
+              <span class="rounded px-1.5 text-xs {{ if $active }}bg-white text-primary dark:bg-text-dark dark:text-darkmode-primary{{ else }}bg-light text-text-light dark:bg-darkmode-light dark:text-darkmode-text-light{{ end }}">{{ .Count }}</span>
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  {{ end }}
+
+  {{ if isset site.Taxonomies "tags" }}
+    {{ if not (eq (len site.Taxonomies.tags) 0) }}
+      <div class="mt-5 border-t border-border pt-5 dark:border-darkmode-border">
+        <div class="mb-3 flex items-center justify-between text-sm">
+          <span class="font-semibold text-text-dark dark:text-darkmode-text-dark">标签</span>
+          <span class="text-text-light dark:text-darkmode-text-light">{{ len site.Taxonomies.tags }}</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {{ range site.Taxonomies.tags.ByCount }}
+            {{ $active := and $isTag (eq $currentTitle .Page.Title) }}
+            {{ $key := replaceRE `^.*/([^/]+)/?$` `$1` .Page.RelPermalink }}
+            {{ $label := index $tagLabels $key | default .Page.Title }}
+            <a
+              class="inline-flex items-center gap-2 rounded border px-3 py-1.5 text-sm transition {{ if $active }}border-primary bg-primary text-white dark:border-darkmode-primary dark:bg-darkmode-primary dark:text-text-dark{{ else }}border-border bg-body text-text-dark hover:border-primary hover:text-primary dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark dark:hover:border-darkmode-primary dark:hover:text-darkmode-primary{{ end }}"
+              href="{{ .Page.RelPermalink }}">
+              <span>{{ $label }}</span>
+              <span class="rounded px-1.5 text-xs {{ if $active }}bg-white text-primary dark:bg-text-dark dark:text-darkmode-primary{{ else }}bg-light text-text-light dark:bg-darkmode-light dark:text-darkmode-text-light{{ end }}">{{ .Count }}</span>
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  {{ end }}
+</aside>

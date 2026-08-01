@@ -1,0 +1,22 @@
+{
+  "name": "jerry-blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "theme": "node scripts/theme.js",
+    "dev": "concurrently \"node scripts/theme.js --watch\" \"HUGO_CACHEDIR=/Users/jerry/project/jerry-blog/resources/_cache hugo server -D --port 1314\"",
+    "build": "node scripts/theme.js && HUGO_CACHEDIR=/Users/jerry/project/jerry-blog/resources/_cache hugo --minify",
+    "preview": "node scripts/theme.js && HUGO_CACHEDIR=/Users/jerry/project/jerry-blog/resources/_cache hugo server -D --port 1314 --disableFastRender --navigateToChanged"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.19",
+    "concurrently": "^9.2.1",
+    "prettier": "^3.8.3",
+    "prettier-plugin-go-template": "0.0.15",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "tailwind-bootstrap-grid": "^7.0.0",
+    "tailwindcss": "^4.3.0"
+  }
+}

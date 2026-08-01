@@ -1,0 +1,5 @@
+{{ with site.Params.logo }}
+  <img src="{{ . | relURL }}" alt="{{ site.Title }}" width="{{ site.Params.logo_width | default "160" }}" height="{{ site.Params.logo_height | default "32" }}">
+{{ else }}
+  <span class="font-secondary text-xl font-bold text-text-dark dark:text-darkmode-text-dark">{{ site.Params.logo_text | default site.Title }}</span>
+{{ end }}

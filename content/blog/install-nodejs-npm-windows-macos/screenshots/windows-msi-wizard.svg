@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Windows MSI 安装向导</title>
+  <desc id="desc">Node.js Windows MSI installer wizard with default components selected.</desc>
+  <rect width="1100" height="620" fill="#f7f9fc"/>
+  <rect x="128" y="74" width="844" height="472" rx="12" fill="#ffffff" stroke="#cfd8e3" stroke-width="2"/>
+  <rect x="128" y="74" width="844" height="54" rx="12" fill="#f0f3f7"/>
+  <text x="158" y="108" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#17212b">Node.js Setup</text>
+  <text x="172" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#17212b">Custom Setup</text>
+  <text x="172" y="218" font-family="Arial, sans-serif" font-size="19" fill="#526071">保持默认组件，确认 npm package manager 和 Add to PATH</text>
+  <g font-family="Arial, sans-serif" font-size="20" fill="#243244">
+    <rect x="172" y="260" width="520" height="46" rx="8" fill="#f8fafc" stroke="#d7dee8"/>
+    <text x="198" y="290">Node.js runtime</text>
+    <text x="640" y="290" fill="#339933">✓</text>
+    <rect x="172" y="320" width="520" height="46" rx="8" fill="#f8fafc" stroke="#d7dee8"/>
+    <text x="198" y="350">npm package manager</text>
+    <text x="640" y="350" fill="#339933">✓</text>
+    <rect x="172" y="380" width="520" height="46" rx="8" fill="#f8fafc" stroke="#d7dee8"/>
+    <text x="198" y="410">Add to PATH</text>
+    <text x="640" y="410" fill="#339933">✓</text>
+  </g>
+  <rect x="702" y="478" width="96" height="36" rx="7" fill="#eef2f7" stroke="#cbd5e1"/>
+  <text x="724" y="502" font-family="Arial, sans-serif" font-size="16" fill="#344054">Back</text>
+  <rect x="812" y="478" width="96" height="36" rx="7" fill="#0078d4"/>
+  <text x="837" y="502" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Next</text>
+</svg>

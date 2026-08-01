@@ -1,0 +1,194 @@
+baseURL = "https://example.org/"
+locale = "zh-CN"
+title = "Jerry Blog"
+
+timeZone = "Asia/Shanghai"
+hasCJKLanguage = true
+enableRobotsTXT = true
+summaryLength = 28
+defaultContentLanguage = "zh"
+
+# Hugoplate is a theme plus a Tailwind/Hugo Modules toolchain.
+theme = "hugoplate"
+
+[services]
+  [services.googleAnalytics]
+    ID = "G-MEASUREMENT_ID"
+
+[pagination]
+  pagerSize = 10
+  path = "page"
+
+[params]
+  author = "Jerry"
+  description = "一个用 Markdown 长期保存内容、用 Hugo 渲染发布的个人博客。"
+  homeTitle = "把想法写成可以长期保存的网页"
+  kicker = "Personal Notes"
+  favicon = "favicon.svg"
+  logo = ""
+  logo_darkmode = ""
+  logo_text = "Jerry Blog"
+  logo_width = "160px"
+  logo_height = "32px"
+  navbar_fixed = true
+  theme_switcher = true
+  theme_default = "system"
+  mainSections = ["blog"]
+  copyright = "© 2026 Jerry."
+  custom_script = ""
+  google_tag_manager = ""
+  google_adsense = ""
+  contact_form_action = "#"
+
+  [params.navigation_button]
+    enable = false
+    label = "GitHub"
+    link = "https://github.com/"
+
+  [params.search]
+    enable = false
+    primary_color = "#121212"
+    include_sections = ["blog"]
+    show_image = true
+    show_description = true
+    show_tags = true
+    show_categories = true
+
+  [params.announcement]
+    enable = false
+    expire_days = 7
+    content = ""
+
+  [params.preloader]
+    enable = false
+    preloader = ""
+
+  [params.cookies]
+    enable = false
+    expire_days = 60
+    content = "This site uses cookies."
+    button = "I Accept"
+
+  [params.metadata]
+    keywords = ["Hugo", "Blog", "Markdown"]
+    description = "一个用 Hugo 和 Markdown 搭建的个人博客。"
+    author = "Jerry"
+    twitter = ""
+    image = ""
+
+  [params.site_verification]
+    google = ""
+    bing = ""
+    baidu = ""
+    facebook = ""
+    mastodon = ""
+
+  [params.widgets]
+    sidebar = ["filters"]
+
+  [params.open_remark]
+    enable = false
+    site_key = ""
+    embed_url = ""
+
+  [params.llms]
+    generate_llms_txt = false
+    generate_llms_full_txt = false
+    include = []
+    exclude = []
+
+[[params.plugins.css]]
+  link = "plugins/swiper/swiper-bundle.css"
+  lazy = true
+
+[[params.plugins.js]]
+  link = "plugins/swiper/swiper-bundle.js"
+  lazy = false
+
+[[params.plugins.js]]
+  link = "js/gallery-slider.js"
+  lazy = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[permalinks]
+  blog = "/blog/:slug/"
+  posts = "/posts/:slug/"
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = "assets/notwatching/hugo_stats\\.json"
+    target = "css"
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "themes/hugoplate/assets"
+    target = "assets"
+  [[module.mounts]]
+    disableWatch = true
+    source = "hugo_stats.json"
+    target = "assets/notwatching/hugo_stats.json"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[imaging]
+  quality = 80
+  resampleFilter = "Lanczos"
+
+[caches]
+  [caches.images]
+    dir = ":resourceDir/_gen"
+    maxAge = "720h"
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = "720h"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNumbersInTable = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 5
+    ordered = true
+
+[menus]
+  [[menus.main]]
+    name = "首页"
+    url = "/"
+    weight = 10
+
+  [[menus.main]]
+    name = "文章"
+    url = "/blog/"
+    weight = 20
+
+  [[menus.main]]
+    name = "标签"
+    url = "/tags/"
+    weight = 30
+
+  [[menus.footer]]
+    name = "首页"
+    url = "/"
+    weight = 10
+
+  [[menus.footer]]
+    name = "文章"
+    url = "/blog/"
+    weight = 20

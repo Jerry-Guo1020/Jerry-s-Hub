@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">macOS fnm 官方脚本安装</title>
+  <desc id="desc">macOS terminal running the fnm official install script.</desc>
+  <rect width="1100" height="620" fill="#f6f8fb"/>
+  <rect x="92" y="70" width="916" height="480" rx="18" fill="#111827"/>
+  <rect x="92" y="70" width="916" height="56" rx="18" fill="#1f2937"/>
+  <circle cx="126" cy="99" r="8" fill="#ff5f57"/>
+  <circle cx="152" cy="99" r="8" fill="#febc2e"/>
+  <circle cx="178" cy="99" r="8" fill="#28c840"/>
+  <text x="218" y="105" font-family="Arial, sans-serif" font-size="17" fill="#d1d5db">Terminal - zsh</text>
+  <g font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="22">
+    <text x="126" y="174" fill="#86efac">% curl -fsSL https://fnm.vercel.app/install | bash</text>
+    <text x="126" y="224" fill="#e5e7eb">Downloading fnm...</text>
+    <text x="126" y="260" fill="#e5e7eb">Installing to ~/.fnm</text>
+    <text x="126" y="296" fill="#e5e7eb">Adding shell configuration...</text>
+    <text x="126" y="348" fill="#86efac">% source ~/.zshrc</text>
+    <text x="126" y="400" fill="#86efac">% fnm --version</text>
+    <text x="126" y="436" fill="#e5e7eb">fnm 1.x.x</text>
+  </g>
+  <rect x="126" y="474" width="642" height="44" rx="8" fill="#243244" stroke="#4b5563" stroke-dasharray="8 8"/>
+  <text x="148" y="503" font-family="Arial, sans-serif" font-size="19" fill="#d1d5db">确认 fnm 安装完成并输出版本号</text>
+</svg>
