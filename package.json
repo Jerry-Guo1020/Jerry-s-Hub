@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "theme": "node scripts/theme.js",
-    "dev": "concurrently \"node scripts/theme.js --watch\" \"HUGO_CACHEDIR=/Users/jerry/project/jerry-blog/resources/_cache hugo server -D --port 1314\"",
-    "build": "node scripts/theme.js && HUGO_CACHEDIR=/Users/jerry/project/jerry-blog/resources/_cache hugo --minify",
-    "preview": "node scripts/theme.js && HUGO_CACHEDIR=/Users/jerry/project/jerry-blog/resources/_cache hugo server -D --port 1314 --disableFastRender --navigateToChanged"
+    "dev": "concurrently \"node scripts/theme.js --watch\" \"hugo server -D --port 1314\"",
+    "build": "node scripts/theme.js && hugo --minify",
+    "preview": "node scripts/theme.js && hugo server -D --port 1314 --disableFastRender --navigateToChanged"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.0",
