@@ -43,7 +43,7 @@ theme = "hugoplate"
   [params.navigation_button]
     enable = false
     label = "GitHub"
-    link = "https://github.com/"
+    link = "https://github.com/Jerry-Guo1020"
 
   [params.search]
     enable = false

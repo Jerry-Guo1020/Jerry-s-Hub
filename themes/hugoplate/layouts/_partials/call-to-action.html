@@ -18,7 +18,8 @@
               </p>
               {{ with .Params.button }}
                 {{ if .enable }}
-                  <a class="btn btn-primary" href="{{ .link | absURL }}">
+                  {{ $link := .link }}
+                  <a class="btn btn-primary" href="{{ if strings.HasPrefix $link `http` }}{{ $link | safeURL }}{{ else }}{{ $link | relLangURL }}{{ end }}">
                     {{ .label }}
                   </a>
                 {{ end }}
