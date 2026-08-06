@@ -1,3 +1,5 @@
-name = "jerry-blog"
-pages_build_output_dir = "public"
-compatibility_date = "2026-08-06"
+name = "jerry-s-hub"
+compatibility_date = "2026-08-02"
+
+[assets]
+directory = "./public"

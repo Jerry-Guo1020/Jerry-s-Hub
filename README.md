@@ -13,7 +13,7 @@ assets/css/           前端样式，会被 Hugo 处理后输出
 static/               原样复制到网站根目录的静态文件
 hugo.toml             Hugo 站点配置
 scripts/hugo.sh       CI 构建时自动安装/调用 Hugo Extended
-wrangler.toml         Cloudflare Pages 输出目录配置
+wrangler.toml         Cloudflare Workers 静态资源部署配置
 ```
 
 Hugo 不是传统意义上的后端框架。它的“后端感”主要来自内容文件、数据文件、模板渲染和本地开发服务器。正式发布时，它会把这些文件编译成 `public/` 里的静态网页。
@@ -64,14 +64,14 @@ npm run build
 public/
 ```
 
-## Cloudflare Pages 部署设置
+## Cloudflare Workers 部署设置
 
-在 Cloudflare Pages 中使用下面设置：
+当前项目连接在 Cloudflare Workers 的 Git 构建里。后台使用下面设置：
 
 ```text
 Build command: npm run build
-Build output directory: public
+Deploy command: npx wrangler deploy
 Node.js version: 22 或更高
 ```
 
-仓库已经包含 `.node-version`、`.nvmrc`、`.npmrc` 和 `wrangler.toml`，用于减少 Cloudflare 构建环境的隐式差异。
+`wrangler.toml` 会把 Hugo 生成的 `public/` 作为 Workers 静态资源上传。不要把这个项目配置成普通 Worker 入口文件部署，也不要删除 `[assets]` 配置。
