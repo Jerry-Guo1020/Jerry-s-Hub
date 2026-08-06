@@ -2,10 +2,14 @@
   "name": "jerry-blog",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "theme": "node scripts/theme.js",
     "dev": "concurrently \"node scripts/theme.js --watch\" \"scripts/hugo.sh server -D --port 1314\"",
-    "build": "node scripts/theme.js && scripts/hugo.sh --minify",
+    "build": "node scripts/theme.js && scripts/hugo.sh --minify --cleanDestinationDir",
+    "build:cloudflare": "npm run build",
     "preview": "node scripts/theme.js && scripts/hugo.sh server -D --port 1314 --disableFastRender --navigateToChanged"
   },
   "devDependencies": {

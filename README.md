@@ -1,6 +1,6 @@
 # Jerry Blog
 
-这是一个最小可运行的 Hugo 博客骨架。它没有依赖外部主题，方便你先看清楚 Hugo 项目里每一层分别做什么。
+这是一个基于 Hugo 和 Hugoplate 的个人博客。内容写在 `content/`，主题与样式由 Hugo 和 Tailwind 构建，最终输出到 `public/`。
 
 ## 目录怎么理解
 
@@ -12,21 +12,21 @@ layouts/              页面模板，也就是 UI 的 HTML 结构
 assets/css/           前端样式，会被 Hugo 处理后输出
 static/               原样复制到网站根目录的静态文件
 hugo.toml             Hugo 站点配置
+scripts/hugo.sh       CI 构建时自动安装/调用 Hugo Extended
+wrangler.toml         Cloudflare Pages 输出目录配置
 ```
 
 Hugo 不是传统意义上的后端框架。它的“后端感”主要来自内容文件、数据文件、模板渲染和本地开发服务器。正式发布时，它会把这些文件编译成 `public/` 里的静态网页。
 
-## MacBook 上先装 Hugo
+## 本地环境
 
-```bash
-brew install hugo
-hugo version
-```
+项目使用 Node 20+。仓库里的 `scripts/hugo.sh` 会优先使用本机 Hugo Extended；如果 CI 里没有可用版本，会自动下载 Hugo Extended 0.164.0+。
 
 ## 本地启动
 
 ```bash
-hugo server -D
+npm ci
+npm run dev
 ```
 
 默认会打开类似下面的地址：
@@ -54,7 +54,8 @@ content/posts/my-first-post/index.md
 ## 打包静态网站
 
 ```bash
-hugo --minify
+npm ci
+npm run build
 ```
 
 生成结果会在：
@@ -63,4 +64,14 @@ hugo --minify
 public/
 ```
 
-这个目录可以部署到 GitHub Pages、Cloudflare Pages、Netlify、Vercel 等静态托管服务。
+## Cloudflare Pages 部署设置
+
+在 Cloudflare Pages 中使用下面设置：
+
+```text
+Build command: npm run build
+Build output directory: public
+Node.js version: 22 或更高
+```
+
+仓库已经包含 `.node-version`、`.nvmrc`、`.npmrc` 和 `wrangler.toml`，用于减少 Cloudflare 构建环境的隐式差异。
