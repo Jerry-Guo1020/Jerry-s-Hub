@@ -1,0 +1,76 @@
+{{ define "main" }}
+  <section>
+    <div class="container">
+      <div class="series-hero">
+        <p class="series-hero__eyebrow">专题</p>
+        <h1>{{ .Title }}</h1>
+        {{ partial "components/breadcrumb" (dict "Context" . "Class" "series-hero__breadcrumb") }}
+      </div>
+    </div>
+  </section>
+  {{ partial "toc.html" (dict "Class" "blog" "Collapsed" true "TableOfContents" .TableOfContents ) }}
+
+  {{ $pages := .RegularPages.ByWeight }}
+
+  <section class="section pt-7">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10">
+          <div class="series-overview">
+            <div>
+              <p class="series-overview__eyebrow">Topic</p>
+              <h2>专题概览</h2>
+            </div>
+            <div class="series-overview__stats" aria-label="专题文章数量">
+              <strong>{{ len $pages }}</strong>
+              <span>篇子文章</span>
+            </div>
+          </div>
+
+          {{ with .Content }}
+            <div class="content mb-14">
+              {{ . }}
+            </div>
+          {{ end }}
+
+          {{ if $pages }}
+            <div class="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <p class="mb-2 text-sm uppercase text-text-light dark:text-darkmode-text-light">
+                  Topic Articles
+                </p>
+                <h2 class="h3 mb-0">专题文章</h2>
+              </div>
+              <p class="mb-0 text-sm text-text-light dark:text-darkmode-text-light">
+                共 {{ len $pages }} 篇
+              </p>
+            </div>
+
+            <div class="series-article-grid">
+              {{ range $i, $p := $pages }}
+                <article class="series-article-card">
+                  <div class="series-article-card__number">
+                    {{ printf "%02d" (add $i 1) }}
+                  </div>
+                  <div class="series-article-card__body">
+                    <h3>
+                      <a href="{{ $p.RelPermalink }}">
+                        {{ $p.Title }}
+                      </a>
+                    </h3>
+                    <p>
+                      {{ $p.Summary | plainify }}
+                    </p>
+                    <a class="series-article-card__link" href="{{ $p.RelPermalink }}">
+                      阅读这一篇
+                    </a>
+                  </div>
+                </article>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

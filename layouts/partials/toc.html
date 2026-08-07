@@ -1,3 +1,24 @@
-{{ with .TableOfContents }}
-  <nav class="{{ $.Class }} toc mb-8">{{ . }}</nav>
+{{ $toc := .TableOfContents }}
+{{ $class := .Class | default "" }}
+{{ $collapsed := .Collapsed | default true }}
+{{ if and $toc (in $toc "<li>") }}
+  <details class="{{ $class }} toc-floating" {{ if not $collapsed }}open{{ end }}>
+    <summary class="toc-floating__summary">
+      <span class="toc-floating__summary-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="toc-floating__summary-text">
+        <span class="toc-floating__text-closed">目录</span>
+        <span class="toc-floating__text-open">收起目录</span>
+      </span>
+    </summary>
+    <div class="toc-floating__panel">
+      <p class="toc-floating__title">文章目录</p>
+      <div class="toc-floating__content">
+        {{ $toc }}
+      </div>
+    </div>
+  </details>
 {{ end }}

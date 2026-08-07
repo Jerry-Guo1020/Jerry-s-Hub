@@ -1,0 +1,63 @@
+{{ $isSeries := and .IsSection (eq .Section "blog") }}
+{{ $children := .RegularPages.ByWeight }}
+<article class="blog-card-entry{{ if $isSeries }} blog-card-entry--series{{ end }}">
+  {{ $image:= .Params.image }}
+  {{ if $image }}
+    <a class="blog-card-entry__cover" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full") }}
+    </a>
+  {{ end }}
+
+  <div class="blog-card-entry__topline">
+    {{ if $isSeries }}
+      <span class="blog-card-entry__badge">专题</span>
+      <span>{{ len $children }} 篇子文章</span>
+    {{ else }}
+      {{ if not .PublishDate.IsZero }}
+        <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ time.Format ":date_long" .PublishDate }}</time>
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <h4 class="blog-card-entry__title">
+    <a href="{{ .RelPermalink }}">
+      {{ .Title }}
+    </a>
+  </h4>
+
+  {{ $categories:= .Params.categories }}
+  {{ if $categories }}
+    <ul class="blog-card-entry__meta">
+      {{ with .Params.author }}
+        <li>
+          <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+          <a href="{{ `authors/` | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+        </li>
+      {{ end }}
+      <li>
+        <i class="fa-regular fa-folder" aria-hidden="true"></i>
+        {{ range $i,$p:= $categories }}
+          <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/">
+            {{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }},{{ end }}
+          </a>
+        {{ end }}
+      </li>
+    </ul>
+  {{ end }}
+
+  <p class="blog-card-entry__summary">{{ .Summary | plainify }}</p>
+
+  {{ if and $isSeries $children }}
+    <ol class="blog-card-entry__children" aria-label="专题子文章">
+      {{ range first 3 $children }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ol>
+  {{ end }}
+
+  <a class="blog-card-entry__button" href="{{ .RelPermalink }}">
+    {{ if $isSeries }}进入专题{{ else }}阅读全文{{ end }}
+  </a>
+</article>
