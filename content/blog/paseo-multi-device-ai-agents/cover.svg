@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">用 Paseo 把 AI 编程 Agent 搬上全家桶</title>
+  <desc id="desc">Paseo + Tailscale multi-device deployment cover: Windows, fly NAS, macOS and iPhone running pi agent daemons.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4f9ff"/>
+      <stop offset="0.5" stop-color="#eef8f4"/>
+      <stop offset="1" stop-color="#eaf0ff"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f3460"/>
+      <stop offset="1" stop-color="#1f6f5c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#203040" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 548 C180 496 315 606 470 554 C640 498 750 470 920 524 C1045 563 1130 576 1200 534 L1200 675 L0 675 Z" fill="#cfe6db" opacity="0.9"/>
+  <g transform="translate(84 74)" font-family="Inter, 'PingFang SC', Arial, sans-serif">
+    <rect x="0" y="0" width="226" height="44" rx="22" fill="url(#badge)"/>
+    <text x="36" y="29" fill="#ffffff" font-size="21" font-weight="700">Paseo × Tailscale</text>
+    <text x="0" y="138" fill="#111827" font-size="62" font-weight="800">用 Paseo 把 AI 编程 Agent</text>
+    <text x="0" y="206" fill="#111827" font-size="62" font-weight="800">搬上全家桶</text>
+    <text x="2" y="262" fill="#4b5563" font-size="26">Windows 无声运行 · 飞牛NAS · MacBook · iPhone 随时指挥</text>
+  </g>
+  <g transform="translate(92 320)" font-family="Inter, 'PingFang SC', Arial, sans-serif">
+    <rect x="0" y="0" width="236" height="128" rx="18" fill="#ffffff" filter="url(#shadow)"/>
+    <circle cx="46" cy="40" r="21" fill="#0f3460"/>
+    <text x="66" y="27" fill="#111827" font-size="22" font-weight="700">winpc</text>
+    <text x="66" y="53" fill="#64748b" font-size="16">Windows + new-api</text>
+    <text x="24" y="100" fill="#1f6f5c" font-size="18" font-weight="700">100.64.0.2</text>
+    <rect x="272" y="0" width="236" height="128" rx="18" fill="#ffffff" filter="url(#shadow)"/>
+    <circle cx="318" cy="40" r="21" fill="#1f6f5c"/>
+    <text x="338" y="27" fill="#111827" font-size="22" font-weight="700">fnnas</text>
+    <text x="338" y="53" fill="#64748b" font-size="16">飞牛NAS · systemd</text>
+    <text x="296" y="100" fill="#1f6f5c" font-size="18" font-weight="700">100.64.0.1</text>
+    <rect x="544" y="0" width="236" height="128" rx="18" fill="#ffffff" filter="url(#shadow)"/>
+    <circle cx="590" cy="40" r="21" fill="#b45309"/>
+    <text x="610" y="27" fill="#111827" font-size="22" font-weight="700">mbp16</text>
+    <text x="610" y="53" fill="#64748b" font-size="16">macOS 26 · launchd</text>
+    <text x="568" y="100" fill="#1f6f5c" font-size="18" font-weight="700">100.64.0.5</text>
+    <rect x="816" y="0" width="252" height="128" rx="18" fill="#0f172a" filter="url(#shadow)"/>
+    <text x="846" y="60" fill="#ffffff" font-size="24" font-weight="700">iPhone</text>
+    <text x="846" y="92" fill="#94a3b8" font-size="16">Tailscale 直连 · Paseo App</text>
+  </g>
+  <g transform="translate(92 494)" font-family="Inter, 'PingFang SC', Arial, sans-serif">
+    <rect width="640" height="66" rx="14" fill="#102018"/>
+    <circle cx="30" cy="22" r="6" fill="#ff5f57"/>
+    <circle cx="50" cy="22" r="6" fill="#febc2e"/>
+    <circle cx="70" cy="22" r="6" fill="#28c840"/>
+    <text x="24" y="51" fill="#e2e8f0" font-size="20" font-weight="700">pi agent daemon --listen :6767 --web-ui</text>
+  </g>
+</svg>
