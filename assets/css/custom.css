@@ -1,0 +1,8 @@
+/* 项目自定义样式（覆盖 hugoplate 主题） */
+
+/* 移动端左右留白放大，读起来舒服 */
+@media (max-width: 639px) {
+  .container {
+    padding-inline: 1.5rem; /* 24px，比原来的 12px 更宽松 */
+  }
+}

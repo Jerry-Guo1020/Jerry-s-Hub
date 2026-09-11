@@ -30,12 +30,12 @@
     <ul class="blog-card-entry__meta">
       {{ with .Params.author }}
         <li>
-          <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
+          {{ partial "icon" (dict "icon" "user" "class" "mr-1 inline-block h-4 w-4 align-[-0.125em]" ) }}
           <a href="{{ `authors/` | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
         </li>
       {{ end }}
       <li>
-        <i class="fa-regular fa-folder" aria-hidden="true"></i>
+        {{ partial "icon" (dict "icon" "folder" "class" "mr-1 inline-block h-4 w-4 align-[-0.125em]" ) }}
         {{ range $i,$p:= $categories }}
           <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/">
             {{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }},{{ end }}

@@ -1,0 +1,25 @@
+{{- /* 通用小图标 partial：内联 SVG，不依赖 Font Awesome */ -}}
+{{- $icon := lower .icon -}}
+{{- $class := "inline-block h-[1em] w-[1em] align-[-0.125em]" -}}
+{{- if .class }}{{ $class = .class }}{{ end -}}
+{{- if eq $icon "user" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 7c0-.6.4-1 1-1h12c.6 0 1 .4 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2Z" clip-rule="evenodd"/></svg>
+{{- else if eq $icon "folder" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 3A1.5 1.5 0 0 1 3 1.5h3.586c.398 0 .78.158 1.06.44l.915.914H13A1.5 1.5 0 0 1 14.5 4.5v8A1.5 1.5 0 0 1 13 14H3a1.5 1.5 0 0 1-1.5-1.5V3Z" clip-rule="evenodd"/></svg>
+{{- else if eq $icon "clock" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm.75 3.5a.75.75 0 0 0-1.5 0V8c0 .199.079.39.22.53l2.5 2.5a.75.75 0 1 0 1.06-1.06l-2.28-2.28V4.5Z" clip-rule="evenodd"/></svg>
+{{- else if eq $icon "check" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-6.5 6.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 0 1 1.06-1.06l2.97 2.97 5.97-5.97a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"/></svg>
+{{- else if eq $icon "arrow-right" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.75.75 0 0 1 .75-.75h11.19L9.22 3.53a.75.75 0 0 1 1.06-1.06l5 5a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06-1.06l3.72-3.72H1.75A.75.75 0 0 1 1 8Z" clip-rule="evenodd"/></svg>
+{{- else if eq $icon "search" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.442 10.442a6 6 0 1 0-1.415 1.415l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85ZM2.5 7a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0Z" clip-rule="evenodd"/></svg>
+{{- else if eq $icon "github" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .198a8 8 0 0 0-2.53 15.59c.4.074.547-.174.547-.386 0-.19-.007-.693-.011-1.36-2.226.484-2.695-.944-2.695-.944-.364-.924-.888-1.17-.888-1.17-.726-.497.055-.487.055-.487.802.057 1.225.824 1.225.824.713 1.222 1.871.869 2.327.665.072-.517.279-.87.507-1.07-1.775-.202-3.641-.888-3.641-3.953 0-.873.312-1.587.824-2.147-.083-.202-.357-1.016.078-2.117 0 0 .672-.215 2.201.82a7.67 7.67 0 0 1 2.003-.27c.68 0 1.365.091 2.004.27 1.528-1.035 2.2-.82 2.2-.82.435 1.101.16 1.915.078 2.117.512.56.824 1.274.824 2.147 0 3.073-1.87 3.748-3.65 3.947.287.248.543.735.543 1.481 0 1.07-.01 1.933-.01 2.197 0 .214.146.462.553.384A8 8 0 0 0 8 .198Z"/></svg>
+{{- else if eq $icon "rss" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 13a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM14.5 15a.5.5 0 0 1-.5-.5C13.8 8.9 9.1 4.2 2.5 4a.5.5 0 0 1 0-1C9.9 3.2 14.8 8.1 15 14.5c0 .28-.22.5-.5.5ZM9 14a.5.5 0 0 1-.5-.5C8.38 9.9 6.1 7.62 3.5 7.5a.5.5 0 0 1 0-1c3.3.12 5.38 2.2 5.5 5.5 0 .28-.22.5-.5.5Z"/></svg>
+{{- else if eq $icon "linkedin" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146Zm4.943 12.248V6.169H2.542v7.225h2.401Zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016Zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.633v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4Z"/></svg>
+{{- else if eq $icon "twitter" -}}
+  <svg class="{{ $class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg>
+{{- end -}}

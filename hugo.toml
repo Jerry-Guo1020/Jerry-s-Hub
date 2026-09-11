@@ -126,10 +126,10 @@ theme = "hugoplate"
 
 [module]
   [[module.mounts]]
-    source = "assets"
+    source = "themes/hugoplate/assets"
     target = "assets"
   [[module.mounts]]
-    source = "themes/hugoplate/assets"
+    source = "assets"
     target = "assets"
   [[module.mounts]]
     disableWatch = true
