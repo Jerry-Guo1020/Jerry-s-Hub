@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
-  <title id="title">为什么 Codex 里能跑 DeepSeek：外壳和发动机是两码事</title>
-  <desc id="desc">Codex / Claude Code 是外壳，负责手脚；模型是发动机，通过标准接口可以换成 DeepSeek、Kimi、Claude 等。</desc>
+  <title id="title">为什么 Codex 里能跑 DeepSeek：外壳、发动机，还有一套内置结构</title>
+  <desc id="desc">Codex / Claude Code 这类套壳工具分三层：外壳负责手脚，内置结构负责引导式对话和 skills，发动机是底层可换的模型，靠 base_url + key 标准接口接入。</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#0f172a"/>
@@ -20,36 +20,44 @@
 
   <!-- 顶部标题区 -->
   <g transform="translate(84 74)" font-family="Inter, Arial, 'Microsoft YaHei', sans-serif">
-    <text x="0" y="0" fill="#7c8db5" font-size="24" font-weight="700" letter-spacing="2">AI CODING AGENTS · SHELL &amp; ENGINE</text>
+    <text x="0" y="0" fill="#7c8db5" font-size="24" font-weight="700" letter-spacing="2">AI CODING AGENTS · SHELL · STRUCTURE · ENGINE</text>
     <text x="0" y="66" fill="#f8fafc" font-size="62" font-weight="800">为什么 Codex 里能跑</text>
     <text x="0" y="136" fill="#f8fafc" font-size="62" font-weight="800">DeepSeek</text>
-    <text x="0" y="192" fill="#94a3b8" font-size="26">外壳和发动机，是两码事</text>
+    <text x="0" y="192" fill="#94a3b8" font-size="26">外壳、发动机，还有一套内置结构</text>
   </g>
 
-  <!-- 外壳 + 发动机 示意图 -->
+  <!-- 三层示意图 -->
   <g transform="translate(84 280)" font-family="'Cascadia Mono', Consolas, monospace">
+    <!-- 外壳 -->
     <rect x="0" y="0" width="290" height="260" rx="16" fill="#0b1220" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
-    <text x="145" y="56" fill="#10b981" font-size="22" font-weight="700" text-anchor="middle">外壳 Shell</text>
+    <text x="145" y="52" fill="#10b981" font-size="22" font-weight="700" text-anchor="middle">外壳 Shell</text>
     <text x="145" y="92" fill="#f8fafc" font-size="18" text-anchor="middle">Codex / Claude Code</text>
     <text x="145" y="124" fill="#64748b" font-size="15" text-anchor="middle">读写文件</text>
     <text x="145" y="150" fill="#64748b" font-size="15" text-anchor="middle">执行命令 · 跑测试</text>
-    <text x="145" y="182" fill="#64748b" font-size="15" text-anchor="middle">负责「手脚」</text>
+    <text x="145" y="186" fill="#94a3b8" font-size="15" text-anchor="middle">负责「手脚」</text>
 
-    <rect x="330" y="60" width="250" height="140" rx="14" fill="#0a0f1c" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 4"/>
-    <text x="455" y="122" fill="#7c8db5" font-size="20" font-weight="700" text-anchor="middle">标准接口</text>
-    <text x="455" y="156" fill="#fbbf24" font-size="16" text-anchor="middle">base_url + key</text>
+    <!-- 内置结构 -->
+    <rect x="330" y="0" width="310" height="260" rx="16" fill="#0b1220" stroke="#a78bfa" stroke-width="2" filter="url(#shadow)"/>
+    <text x="485" y="52" fill="#a78bfa" font-size="22" font-weight="700" text-anchor="middle">内置结构</text>
+    <text x="485" y="92" fill="#7c8db5" font-size="16" text-anchor="middle">Structure</text>
+    <text x="485" y="130" fill="#f8fafc" font-size="16" text-anchor="middle">引导式对话 · skills</text>
+    <text x="485" y="160" fill="#f8fafc" font-size="15" text-anchor="middle">固定工作流</text>
+    <text x="485" y="196" fill="#94a3b8" font-size="15" text-anchor="middle">官方默认配好</text>
 
-    <rect x="620" y="0" width="290" height="260" rx="16" fill="#0b1220" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
-    <text x="765" y="56" fill="#f59e0b" font-size="22" font-weight="700" text-anchor="middle">发动机 Engine</text>
-    <text x="765" y="92" fill="#f8fafc" font-size="18" text-anchor="middle">DeepSeek / Kimi</text>
-    <text x="765" y="122" fill="#f8fafc" font-size="18" text-anchor="middle">Claude / GPT</text>
-    <text x="765" y="154" fill="#64748b" font-size="15" text-anchor="middle">真正思考的模型</text>
-    <text x="765" y="182" fill="#64748b" font-size="15" text-anchor="middle">负责「脑子」</text>
+    <!-- 发动机 -->
+    <rect x="680" y="0" width="290" height="260" rx="16" fill="#0b1220" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+    <text x="825" y="52" fill="#f59e0b" font-size="22" font-weight="700" text-anchor="middle">发动机 Engine</text>
+    <text x="825" y="92" fill="#f8fafc" font-size="18" text-anchor="middle">DeepSeek / Kimi</text>
+    <text x="825" y="122" fill="#f8fafc" font-size="18" text-anchor="middle">Claude / GPT</text>
+    <text x="825" y="154" fill="#64748b" font-size="15" text-anchor="middle">真正思考的模型</text>
+    <text x="825" y="186" fill="#94a3b8" font-size="15" text-anchor="middle">负责「脑子」· 可换</text>
 
+    <!-- 连线 -->
     <line x1="290" y1="130" x2="324" y2="130" stroke="#64748b" stroke-width="2"/>
-    <line x1="580" y1="130" x2="616" y2="130" stroke="#64748b" stroke-width="2"/>
+    <line x1="640" y1="130" x2="676" y2="130" stroke="#64748b" stroke-width="2"/>
+    <text x="485" y="252" fill="#fbbf24" font-size="15" text-anchor="middle">标准接口 base_url + key</text>
   </g>
 
   <!-- 底部说明 -->
-  <text x="84" y="628" fill="#3f4d6a" font-family="'Cascadia Mono', Consolas, monospace" font-size="19">外壳换发动机 = 换 base_url 指向的地址和模型名 · 承上一篇「终端与桌面怎么选」</text>
+  <text x="84" y="628" fill="#3f4d6a" font-family="'Cascadia Mono', Consolas, monospace" font-size="19">套壳不是空壳：官方配好了结构 · 发动机可换 · 承上一篇「终端与桌面怎么选」</text>
 </svg>
