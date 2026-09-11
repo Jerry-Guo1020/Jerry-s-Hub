@@ -75,11 +75,19 @@ CodeX++ 的定位是给 CodeX 客户端做增强，其中一个功能就是**「
 
 这是我自己折腾出来的一个体会：**在终端里用这两款工具，根本不需要动用 CC Switch 或 CodeX++ 这类「配置切换器」。**
 
-因为终端版的配置就是一堆明文文件——`auth.json`、`config.json` 这类。我可以直接跟 AI 说：去改自己的 `auth.json` 或 `config.json`，把 baseURL 和模型配好。AI 能自己读、自己改、再写回去，完事重启一下就能用。
+因为终端版的配置就是一堆明文文件——`auth.json`、`config.toml` 这类。我可以直接跟 AI 说：去改自己的 `auth.json` 或 `config.toml`，把 baseURL、模型、推理强度都配好。AI 能自己读、自己改、再写回去，完事重启一下就能用。
 
-也就是说，这些明文文件本身就是「兜底」——看得见、改得动，随便哪个 AI 都能帮你改。这类终端配置文件的架构大致是这样：
+我机器上 `~/.codex/` 里这几个文件，各自分工是这样的：
 
-> 图：终端版明文配置文件架构（auth.json / config.json 等，待补）
+- `auth.json`：登录鉴权，存的是明文的 `OPENAI_API_KEY`。
+- `config.toml`：主配置，`model_provider`、`model`、`model_reasoning_effort`（推理强度）、自定义供应商的 `base_url` 都在这里。
+- `teamorouter-http-proxy.json`：模型别名映射，把 `gpt-5.5` 这样的名字转成国产模型。
+
+它们长这样（key 和网关地址做了脱敏）：
+
+![~/.codex/ 目录下的明文配置文件：auth.json、config.toml 和模型别名映射](codex-config-files.svg)
+
+也就是说，这些明文文件本身就是「兜底」——看得见、改得动，随便哪个 AI 都能帮你改，改完重启就生效。这也正是终端里不需要 CC Switch / CodeX++ 的原因：配置文件直接摆在那，跟 AI 说一声它就能自己改好。
 
 CC Switch / CodeX++ 的价值在**桌面端**更明显：桌面 App 没有这么透明的配置文件让你随手改，或者说改起来要折腾。**如果你不愿意折腾，用 CC Switch（或 CodeX++）确实是不错的选择**——点几下把配置切过去，省心。愿不愿意折腾，是桌面端选不选配置切换器的分界线。
 
@@ -109,7 +117,7 @@ Codex 和 Claude Code 是同一类「能运行代码」的 AI 智能体，不同
 
 选 CLI 还是 GUI，本质是「轻量省内存」和「直观省心」之间的取舍。我的 MacBook Air 没有风扇，所以最后站在了 CLI 这边。
 
-国内的登录问题绕不开：桌面端用 CC Switch（或 CodeX++）是省心解，终端里完全可以自己改 `auth.json` / `config.json` 解决。只是别忘了那个「一调推理强度，custom 变 GPT、连默认模型一起改」的坑——调完档位，记得回头确认一眼。
+国内的登录问题绕不开：桌面端用 CC Switch（或 CodeX++）是省心解，终端里完全可以自己改 `auth.json` / `config.toml` 解决。只是别忘了那个「一调推理强度，custom 变 GPT、连默认模型一起改」的坑——调完档位，记得回头确认一眼。
 
 ## 附：CLI、TUI、GUI 三者的完整对比
 
