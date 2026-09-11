@@ -67,9 +67,9 @@ Codex 和 Claude Code，说白了是一类东西：**AI 编程智能体（AI cod
 
 如果你用的是 CodeX 客户端，其实还有个更省事的选择：**CodeX++（CodeX 加加）**。
 
-CodeX++ 的定位是给 CodeX 客户端做增强，其中就**内置了 CC Switch 的配置切换能力**——装上 CodeX++ 之后，模型和接口配置的切换它都帮你管了，**不需要再单独去装一个 CC Switch**。对于用 CodeX 客户端的人，相当于少折腾一个工具。
+CodeX++ 的定位是给 CodeX 客户端做增强，其中一个功能就是**「添加供应商」**——和 CC Switch 的配置切换是同一套逻辑，把模型和接口的切换都收进来了。装上 CodeX++ 之后，**不需要再单独去装一个 CC Switch**。对于用 CodeX 客户端的人，相当于少折腾一个工具。
 
-> 图：CodeX++ 客户端界面（待补）
+![CodeX++ 的「添加供应商」功能，逻辑和 CC Switch 一致](codex-plus-provider.png)
 
 ## 终端里其实不需要 CC Switch（也不需要 CodeX++）
 
@@ -83,17 +83,25 @@ CodeX++ 的定位是给 CodeX 客户端做增强，其中就**内置了 CC Switc
 
 CC Switch / CodeX++ 的价值在**桌面端**更明显：桌面 App 没有这么透明的配置文件让你随手改，或者说改起来要折腾。**如果你不愿意折腾，用 CC Switch（或 CodeX++）确实是不错的选择**——点几下把配置切过去，省心。愿不愿意折腾，是桌面端选不选配置切换器的分界线。
 
-## CC Switch 的一个坑：Codex 调 fast 变成 GPT
+## CC Switch 的一个坑：一调推理强度，DeepSeek 变回 GPT
 
-即便用了 CC Switch，坑还是有的，而且这个坑我踩得挺深。
+即便用了 CC Switch，坑还是有的，而且这个坑我踩得挺深。要说清楚它，得先看 Codex 里两种「配模型」的方式。
 
-场景是这样的：我在用 Codex，模型配的是国产的 **DeepSeek**。在 CC Switch 里把自定义模型（custom）设为 DeepSeek，于是 Codex 里默认调用的就是 custom，也就是 DeepSeek。到这里一切正常。
+Codex 自带一个**「自定义配置」（添加供应商）**的入口，可以直接在里面加国产模型。加完之后，模型选择器里会明确显示这个模型的名字，比如 **DeepSeek**：
 
-问题出在我想调**运行速率**的时候。Codex 客户端里有一个速度选项，我想把它调成 `fast`（快速档）。结果一调整，模型就自动变成了 **GPT**。
+![Codex 的自定义配置可以直接添加国产模型，选择器里显示 DeepSeek](codex-custom-provider-deepseek.png)
+
+但如果走的是 CC Switch，选择器里就**不会显示 DeepSeek 这个名字**，而是显示一个笼统的 **custom**——因为 CC Switch 是把这个 custom 占位映射成了 DeepSeek。到这里还只是显示上的差别，真正的问题在后面。
+
+Codex 里可以调节 AI 的**推理强度（reasoning effort）**，有 Medium、xhigh 等档位：
+
+![Codex 里的推理强度调节，有 Medium、xhigh 等档位](codex-reasoning-effort.png)
+
+问题就出在这里：如果用的是 CC Switch 配出来的 custom，**一调节推理强度，模型就会从 custom 直接跳到 GPT 的默认预设模型**（GPT 那边有一套预置的模型档位）。
 
 更离谱的是，这不只是当前会话里变一下——它**直接改掉了 CC Switch 里的默认模型**。本来我在 CC Switch 里设的是 DeepSeek，结果这一下连 CC Switch 里的默认模型都一起变成了 GPT。就很扯淡。
 
-这意味着：一旦你在 Codex 里动了速度档位，之前费劲配好的 DeepSeek 默认值就被悄悄抹掉，下次默认又变回 GPT。所以现在每次调完速度，我都得回 CC Switch 里确认一眼默认模型有没有被改，发现变了再改回来。这件事值得单独记一笔，免得下次又莫名其妙踩进去。
+这意味着：一旦你在 Codex 里动了推理强度，之前费劲配好的 DeepSeek 默认值就被悄悄抹掉，下次默认又变回 GPT。所以现在每次调完，我都得回 CC Switch 里确认一眼默认模型有没有被改，发现变了再改回来。这件事值得单独记一笔，免得下次又莫名其妙踩进去。
 
 ## 结尾
 
@@ -101,7 +109,7 @@ Codex 和 Claude Code 是同一类「能运行代码」的 AI 智能体，不同
 
 选 CLI 还是 GUI，本质是「轻量省内存」和「直观省心」之间的取舍。我的 MacBook Air 没有风扇，所以最后站在了 CLI 这边。
 
-国内的登录问题绕不开：桌面端用 CC Switch（或 CodeX++）是省心解，终端里完全可以自己改 `auth.json` / `config.json` 解决。只是别忘了那个「Codex 调 fast 变 GPT、连默认模型一起改」的坑——调完速度，记得回头确认一眼。
+国内的登录问题绕不开：桌面端用 CC Switch（或 CodeX++）是省心解，终端里完全可以自己改 `auth.json` / `config.json` 解决。只是别忘了那个「一调推理强度，custom 变 GPT、连默认模型一起改」的坑——调完档位，记得回头确认一眼。
 
 ## 附：CLI、TUI、GUI 三者的完整对比
 
