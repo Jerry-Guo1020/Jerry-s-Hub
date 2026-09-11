@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="600" viewBox="0 0 1100 600" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="540" viewBox="0 0 1100 540" role="img" aria-labelledby="title desc">
   <title id="title">~/.codex 目录下的明文配置文件架构</title>
-  <desc id="desc">终端版 Codex 的三个明文配置文件：auth.json（OPENAI_API_KEY）、config.toml（模型与推理强度）、teamorouter-http-proxy.json（模型别名映射）。key 与网关地址已脱敏。</desc>
+  <desc id="desc">终端版 Codex 的两个明文配置文件：auth.json（OPENAI_API_KEY）、config.toml（模型与推理强度）。key 与网关地址已脱敏。</desc>
   <defs>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#020617" flood-opacity="0.5"/>
@@ -8,7 +8,7 @@
   </defs>
 
   <!-- 终端窗口 -->
-  <rect x="20" y="20" width="1060" height="560" rx="16" fill="#0b1220" stroke="#2b3b56" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="20" y="20" width="1060" height="500" rx="16" fill="#0b1220" stroke="#2b3b56" stroke-width="2" filter="url(#shadow)"/>
   <path d="M20 36 Q20 20 36 20 H1084 Q1100 20 1100 36 V64 H20 Z" fill="#16233b"/>
   <circle cx="44" cy="42" r="6" fill="#ff5f57"/>
   <circle cx="66" cy="42" r="6" fill="#febc2e"/>
@@ -16,17 +16,16 @@
   <text x="550" y="48" fill="#7c8db5" font-family="'Cascadia Mono', Consolas, monospace" font-size="17" text-anchor="middle" font-weight="600">~/.codex —— 终端明文配置文件</text>
 
   <!-- 左侧：目录树 -->
-  <g transform="translate(56 118)" font-family="'Cascadia Mono', Consolas, monospace">
+  <g transform="translate(56 116)" font-family="'Cascadia Mono', Consolas, monospace">
     <text x="0" y="0" fill="#4ade80" font-size="24" font-weight="700">~/.codex/</text>
-    <text x="0" y="40" fill="#f8fafc" font-size="22">├── auth.json</text>
-    <text x="0" y="80" fill="#f8fafc" font-size="22">├── config.toml</text>
-    <text x="0" y="120" fill="#f8fafc" font-size="22">└── teamorouter-http-proxy.json</text>
+    <text x="0" y="44" fill="#f8fafc" font-size="22">├── auth.json</text>
+    <text x="0" y="88" fill="#f8fafc" font-size="22">└── config.toml</text>
   </g>
 
   <!-- 右侧：文件内容 -->
   <g>
-    <rect x="580" y="96" width="468" height="436" rx="12" fill="#0a0f1c" stroke="#2b3b56" stroke-width="1.5"/>
-    <g transform="translate(604 136)" font-family="'Cascadia Mono', Consolas, monospace" font-size="18">
+    <rect x="580" y="96" width="468" height="316" rx="12" fill="#0a0f1c" stroke="#2b3b56" stroke-width="1.5"/>
+    <g transform="translate(604 134)" font-family="'Cascadia Mono', Consolas, monospace" font-size="18">
       <text x="0" y="0" fill="#64748b" font-weight="600"># auth.json</text>
       <text x="0" y="26" fill="#475569">{</text>
       <text x="16" y="52" fill="#fbbf24">"OPENAI_API_KEY": "sk-…"</text>
@@ -37,12 +36,9 @@
       <text x="0" y="190" fill="#f59e0b">model_reasoning_effort = "high"</text>
       <text x="0" y="216" fill="#c4b5fd">[model_providers.custom]</text>
       <text x="16" y="242" fill="#fbbf24">base_url = "https://…/v1"</text>
-      <text x="0" y="276" fill="#64748b" font-weight="600"># teamorouter alias_map</text>
-      <text x="0" y="302" fill="#4ade80">"gpt-5.5" → "kimi-k3"</text>
-      <text x="0" y="328" fill="#4ade80">"gpt-5.4" → "deepseek-v4-pro"</text>
     </g>
   </g>
 
   <!-- 底部说明 -->
-  <text x="550" y="566" fill="#64748b" font-family="'Cascadia Mono', Consolas, monospace" font-size="16" text-anchor="middle">三个明文文件，改完重启即生效 —— 终端里不需要 CC Switch / CodeX++</text>
+  <text x="550" y="492" fill="#64748b" font-family="'Cascadia Mono', Consolas, monospace" font-size="16" text-anchor="middle">两个明文文件，改完重启即生效 —— 终端里不需要 CC Switch / CodeX++</text>
 </svg>

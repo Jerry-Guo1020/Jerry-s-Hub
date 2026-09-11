@@ -77,15 +77,14 @@ CodeX++ 的定位是给 CodeX 客户端做增强，其中一个功能就是**「
 
 因为终端版的配置就是一堆明文文件——`auth.json`、`config.toml` 这类。我可以直接跟 AI 说：去改自己的 `auth.json` 或 `config.toml`，把 baseURL、模型、推理强度都配好。AI 能自己读、自己改、再写回去，完事重启一下就能用。
 
-我机器上 `~/.codex/` 里这几个文件，各自分工是这样的：
+我机器上 `~/.codex/` 里这两个文件，各自分工是这样的：
 
 - `auth.json`：登录鉴权，存的是明文的 `OPENAI_API_KEY`。
 - `config.toml`：主配置，`model_provider`、`model`、`model_reasoning_effort`（推理强度）、自定义供应商的 `base_url` 都在这里。
-- `teamorouter-http-proxy.json`：模型别名映射，把 `gpt-5.5` 这样的名字转成国产模型。
 
 它们长这样（key 和网关地址做了脱敏）：
 
-![~/.codex/ 目录下的明文配置文件：auth.json、config.toml 和模型别名映射](codex-config-files.svg)
+![~/.codex/ 目录下的明文配置文件：auth.json、config.toml](codex-config-files.svg)
 
 也就是说，这些明文文件本身就是「兜底」——看得见、改得动，随便哪个 AI 都能帮你改，改完重启就生效。这也正是终端里不需要 CC Switch / CodeX++ 的原因：配置文件直接摆在那，跟 AI 说一声它就能自己改好。
 
