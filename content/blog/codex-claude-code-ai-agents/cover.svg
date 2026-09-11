@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
-  <title id="title">Codex 与 Claude Code：CLI、TUI、GUI 三种形态的区别和取舍</title>
-  <desc id="desc">比较两个能运行代码的 AI 智能体 Codex 与 Claude Code，以及 CLI、TUI、GUI 三种界面形态的差异。</desc>
+  <title id="title">Codex 与 Claude Code：CLI 与 GUI，终端和桌面怎么选</title>
+  <desc id="desc">比较两个能运行代码的 AI 智能体 Codex 与 Claude Code，以及 CLI 与 GUI 两种界面形态的差别和取舍。</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#0f172a"/>
@@ -27,7 +27,7 @@
     <text x="0" y="0" fill="#7c8db5" font-size="24" font-weight="700" letter-spacing="2">AI CODING AGENTS · CODEX &amp; CLAUDE CODE</text>
     <text x="0" y="66" fill="#f8fafc" font-size="62" font-weight="800">Codex 与 Claude Code</text>
     <text x="0" y="136" fill="#f8fafc" font-size="62" font-weight="800">终端还是桌面，怎么选</text>
-    <text x="0" y="192" fill="#94a3b8" font-size="26">CLI · TUI · GUI —— 三种形态的区别和取舍</text>
+    <text x="0" y="192" fill="#94a3b8" font-size="26">CLI 与 GUI —— 两个形态的差别和取舍</text>
   </g>
 
   <!-- 左侧：两个智能体 -->
@@ -47,24 +47,23 @@
     <text x="24" y="262" fill="#94a3b8" font-size="16">都能运行代码：读文件 / 跑命令 / 改代码</text>
   </g>
 
-  <!-- 右侧：三种形态 -->
+  <!-- 右侧：CLI 与 GUI -->
   <g transform="translate(448 280)" font-family="'Cascadia Mono', Consolas, monospace">
     <rect x="0" y="0" width="556" height="290" rx="16" fill="#0b1220" stroke="#2b3b56" stroke-width="2" filter="url(#shadow)"/>
     <path d="M0 16 Q0 0 16 0 H540 Q556 0 556 16 V44 H0 Z" fill="#16233b"/>
     <circle cx="24" cy="22" r="6" fill="#ff5f57"/>
     <circle cx="46" cy="22" r="6" fill="#febc2e"/>
     <circle cx="68" cy="22" r="6" fill="#28c840"/>
-    <text x="278" y="30" fill="#7c8db5" font-size="17" text-anchor="middle" font-weight="600">three forms</text>
-    <text x="26" y="90" fill="#f59e0b" font-size="21" font-weight="700">CLI</text>
+    <text x="278" y="30" fill="#7c8db5" font-size="17" text-anchor="middle" font-weight="600">cli vs gui</text>
+    <text x="26" y="90" fill="#4ade80" font-size="21" font-weight="700">CLI</text>
     <text x="110" y="90" fill="#64748b" font-size="16">纯文本 · 轻量 · 省内存</text>
-    <text x="26" y="136" fill="#4ade80" font-size="21" font-weight="700">TUI</text>
-    <text x="110" y="136" fill="#64748b" font-size="16">终端可视化 · 好看 · 支持拖拽</text>
-    <text x="26" y="182" fill="#0ea5e9" font-size="21" font-weight="700">GUI</text>
-    <text x="110" y="182" fill="#64748b" font-size="16">桌面 App · 直观 · 占资源</text>
-    <text x="26" y="232" fill="#94a3b8" font-size="16">取舍轴：CLI 轻量 ↔ TUI 折中 ↔ GUI 直观</text>
-    <text x="26" y="266" fill="#4ade80" font-size="18">✓ 国内：CC Switch / 改 auth.json · config.json</text>
+    <text x="26" y="136" fill="#0ea5e9" font-size="21" font-weight="700">GUI</text>
+    <text x="110" y="136" fill="#64748b" font-size="16">桌面 App · 直观 · 占资源</text>
+    <text x="26" y="182" fill="#94a3b8" font-size="16">取舍轴：CLI 轻量 ↔ GUI 直观</text>
+    <text x="26" y="232" fill="#4ade80" font-size="18">✓ 国内：CodeX++ / CC Switch / 改 auth.json</text>
+    <text x="26" y="266" fill="#64748b" font-size="16">TUI 折中 · 见文末扩展对比</text>
   </g>
 
   <!-- 底部说明 -->
-  <text x="84" y="628" fill="#3f4d6a" font-family="'Cascadia Mono', Consolas, monospace" font-size="19">Code X · Claude Code · ChatGPT App · Claude App · CC Switch</text>
+  <text x="84" y="628" fill="#3f4d6a" font-family="'Cascadia Mono', Consolas, monospace" font-size="19">Code X · Claude Code · CodeX++ · CC Switch · auth.json</text>
 </svg>
